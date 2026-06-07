@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::match(['post', 'get'], '/login', function() {
     return view('login');
@@ -19,5 +19,15 @@ Route::get('/users', function(){
 });
 
 Route::get('/users/{id}', function($id){
-    return view('home.show', ["id"=> $id]);
+    return view('home.show', compact("id"));
 });
+
+Route::get('/about/adbcsjsnkuk', function(){
+
+    return view('home.about', );
+})->name('about');
+
+Route::get('/test/{val?}', function($val=''){
+    return view('tes.test', compact('val'));
+
+})->name('test');
